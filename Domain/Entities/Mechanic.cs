@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    internal class Mechanic
+     public class Mechanic
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Appointment> Apponments { get; set; }
+        public List<Appointment> Appointments { get; set; }
     }
 }

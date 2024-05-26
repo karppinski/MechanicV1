@@ -10,6 +10,7 @@ namespace Domain.Entities
     {
         public Guid Id { get; set; }
         public Guid MechanicId { get; set; }
+        public Mechanic Mechanic { get; set; }
         public string CustomerName { get; set; }
         public DateTime AppontmentDate { get; set; }
     }
