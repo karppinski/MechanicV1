@@ -12,6 +12,6 @@ namespace Domain.Entities
         public Guid MechanicId { get; set; }
         public Mechanic Mechanic { get; set; }
         public string CustomerName { get; set; }
-        public DateTime AppontmentDate { get; set; }
+        public DateTime AppointmentDate { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.ValueObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace Domain.Entities
         public Guid Id { get; set; }
         public string Name { get; set; }
         public List<Appointment> Appointments { get; set; }
+        public Address Address { get; set; }
     }
 }

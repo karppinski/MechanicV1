@@ -1,6 +1,13 @@
 
+using Application.Commands;
+using Domain.Interfaces;
+using Infrastructure;
 using Infrastructure.Data;
+using Infrastructure.Repositories;
+using MediatR;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MechanicV1
 {
@@ -14,8 +21,13 @@ namespace MechanicV1
 
             builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddMediatR(cfg => {
+                cfg.RegisterServicesFromAssembly(typeof(AddAppointmentCommand).Assembly);
+            });
 
-
+            builder.Services.AddScoped<IAppointmentRepository, AppoinmentRepository>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddTransient<IRequestHandler<AddAppointmentCommand, bool>, AddAppointmentCommandHandler>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
