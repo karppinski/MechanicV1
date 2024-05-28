@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Application.DTO
 {
-    internal class UnitOfWork
+    public class AppointmentQueryDTO
     {
+        public int MyProperty { get; set; }
     }
 }

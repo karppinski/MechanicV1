@@ -23,4 +23,15 @@ public class AppointmentsController : ControllerBase
         }
         return BadRequest();
     }
+
+    [HttpDelete]
+    public async Task<IActionResult> CancelAppointment(CancelAppointmentCommand command)
+    {
+        var result = await _mediator.Send(command);
+        if(result)
+        {
+            return NoContent();
+        }
+        return BadRequest();
+    }
 }

@@ -10,7 +10,7 @@ namespace Domain.Interfaces
     public interface IAppointmentRepository
     {
         Task AddAsync(Appointment appointment);
-        Task RemoveAsync(Appointment appointment);
+        Task RemoveAsync(Guid id);
         Task<Appointment> GetByIdAsync(Guid id);
         Task<IEnumerable<Appointment>> GetAllAsync();
     }

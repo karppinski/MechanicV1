@@ -33,9 +33,10 @@ namespace Infrastructure.Repositories
             return await _context.Appointments.FindAsync(id);
         }
 
-        public async Task RemoveAsync(Appointment appointment)
+        public async Task RemoveAsync(Guid id)
         {
-            _context.Remove(appointment);
+            var appointmentToLelete = await _context.Appointments.FindAsync(id);
+            _context.Remove(appointmentToLelete);
             await Task.CompletedTask;
         }
     }
