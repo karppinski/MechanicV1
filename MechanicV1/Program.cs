@@ -1,5 +1,6 @@
 
 using Application.Commands;
+using Application.Mappers;
 using Domain.Interfaces;
 using Infrastructure;
 using Infrastructure.Data;
@@ -24,6 +25,7 @@ namespace MechanicV1
             builder.Services.AddMediatR(cfg => {
                 cfg.RegisterServicesFromAssembly(typeof(AddAppointmentCommand).Assembly);
             });
+            builder.Services.AddAutoMapper(typeof(AppointmentProfile));
 
             builder.Services.AddScoped<IAppointmentRepository, AppoinmentRepository>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

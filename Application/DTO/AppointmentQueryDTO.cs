@@ -8,6 +8,11 @@ namespace Application.DTO
 {
     public class AppointmentQueryDTO
     {
-        public int MyProperty { get; set; }
+        public Guid Id { get; set; }
+        public Guid MechanicId { get; set; }
+        public string CustomerName { get; set; }
+        public DateTime AppointmentDate { get; set; }
     }
+        
+    
 }
