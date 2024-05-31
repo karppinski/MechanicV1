@@ -11,9 +11,5 @@ namespace Application.Commands
     {
         public Guid AppointmentId { get; set; }
 
-        public CancelAppointmentCommand(Guid appointmentId)
-        {
-            AppointmentId = appointmentId;
-        }
     }
 }

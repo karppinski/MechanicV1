@@ -26,8 +26,9 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> CancelAppointment(CancelAppointmentCommand command)
+    public async Task<IActionResult> CancelAppointment(Guid id)
     {
+        var command = new CancelAppointmentCommand { AppointmentId = id };
         var result = await _mediator.Send(command);
         if (result)
         {
@@ -37,11 +38,12 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetAppointmentById(GetAppointmentByIdQuery query)
+    public async Task<IActionResult> GetAppointmentById(Guid id)
     {
+        var query = new GetAppointmentByIdQuery { AppointmentId = id };
         var appointment = await _mediator.Send(query);
 
-        if(appointment != null)
+        if (appointment != null)
         {
             return Ok(appointment);
         }

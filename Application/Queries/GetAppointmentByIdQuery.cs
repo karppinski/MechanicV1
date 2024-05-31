@@ -12,10 +12,6 @@ namespace Application.Queries
     {
         public Guid AppointmentId { get; set; }
 
-        public GetAppointmentByIdQuery(Guid appointmentId)
-        {
-            AppointmentId = appointmentId;
-        }
 
     }
 }
